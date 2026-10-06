@@ -3,14 +3,13 @@ plugins {
 }
 
 android {
-    namespace "org.luanti.luanti" // <-- ОСТАВЬ СВОЁ, ЕСЛИ МЕНЯЛ
-    compileSdk 34 // или 35, если у тебя стоит выше
+    namespace "org.luanti.luanti" // <-- ЕСЛИ МЕНЯЛ, ПОСТАВЬ СВОЁ
+    compileSdk 34
 
-    // ВОТ ОНА, НАША СПАСИТЕЛЬНАЯ СТРОЧКА:
     ndkVersion "25.2.9519653"
 
     defaultConfig {
-        applicationId "org.luanti.luanti" // <-- ОСТАВЬ СВОЁ, ЕСЛИ МЕНЯЛ
+        applicationId "org.luanti.luanti" // <-- ЕСЛИ МЕНЯЛ, ПОСТАВЬ СВОЁ (должно совпадать с namespace)
         minSdk 21
         targetSdk 34
         versionCode 1
@@ -33,15 +32,13 @@ android {
         targetCompatibility JavaVersion.VERSION_17
     }
 
-
-
     externalNativeBuild {
         cmake {
             path "../../CMakeLists.txt"
             version "3.22.1"
         }
     }
-    
+
     sourceSets {
         main {
             jniLibs.srcDirs = ['../native/deps/lib']
